@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Confirmação de Reserva</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family: Georgia, serif;
+    background: linear-gradient(135deg,#f8f6f2,#ffffff);
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+}
+
+.card{
+    background:white;
+    max-width:700px;
+    width:100%;
+    padding:50px;
+    border-radius:20px;
+    box-shadow:0 10px 40px rgba(0,0,0,0.08);
+    text-align:center;
+}
+
+h1{
+    color:#222;
+    margin-bottom:25px;
+}
+
+p{
+    color:#555;
+    line-height:1.8;
+    font-size:18px;
+    margin-bottom:25px;
+}
+
+button{
+    padding:12px 25px;
+    margin:8px;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+    font-size:16px;
+    transition:.2s;
+}
+
+button:hover{
+    transform:scale(1.03);
+}
+
+.primary{
+    background:#222;
+    color:white;
+}
+
+.option{
+    display:block;
+    width:100%;
+    margin:10px 0;
+    background:#f2f2f2;
+}
+
+.message{
+    margin-top:20px;
+    color:#2c7a2c;
+    font-weight:bold;
+}
+
+.error{
+    margin-top:20px;
+    color:#b22222;
+    font-weight:bold;
+}
+
+@keyframes fade{
+    from{
+        opacity:0;
+        transform:translateY(15px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+.fade{
+    animation:fade .5s ease;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="card fade" id="content">
+
+<h1>Olá, senhorita Valentina Graff.</h1>
+
+<p>
+Entramos em contato para confirmar sua reserva para sábado à noite.
+<br><br>
+Podemos contar com sua presença?
+</p>
+
+<button class="primary" onclick="etapa2()">Sim</button>
+<button onclick="naoDisponivel()">Não</button>
+
+<div id="msg"></div>
+
+</div>
+
+<script>
+
+function naoDisponivel(){
+
+document.getElementById("msg").innerHTML = `
+<div class="error">
+Lamentamos informar que esta não é uma opção disponível para esta reserva.
+</div>
+`;
+
+}
+
+function etapa2(){
+
+document.getElementById("content").innerHTML = `
+
+<h1>Para concluir sua reserva, escolha uma opção:</h1>
+
+<button class="option" onclick="respostaEtapa2()">
+A) Jantar romântico
+</button>
+
+<button class="option" onclick="respostaEtapa2()">
+B) Noite agradável
+</button>
+
+<button class="option" onclick="respostaEtapa2()">
+C) Boa companhia
+</button>
+
+<button class="option" onclick="respostaEtapa2()">
+D) Todas as anteriores
+</button>
+
+<div id="msg"></div>
+
+`;
+
+}
+
+function respostaEtapa2(){
+
+document.getElementById("msg").innerHTML = `
+<div class="message">
+Resposta registrada com sucesso.
+</div>
+
+<br>
+
+<button class="primary" onclick="etapa3()">
+Continuar
+</button>
+`;
+
+}
+
+function etapa3(){
+
+document.getElementById("content").innerHTML = `
+
+<h1>Última etapa do processo de confirmação.</h1>
+
+<p>
+Em sua opinião, o Chef Pedro é:
+</p>
+
+<button class="option" onclick="finalizar()">
+A) Bonito
+</button>
+
+<button class="option" onclick="finalizar()">
+B) Gostoso
+</button>
+
+<button class="option" onclick="finalizar()">
+C) Muito bonito e muito gostoso
+</button>
+
+<button class="option" onclick="alternativaInvalida()">
+D) Nenhuma das alternativas
+</button>
+
+<div id="msg"></div>
+
+`;
+
+}
+
+function alternativaInvalida(){
+
+document.getElementById("msg").innerHTML = `
+<div class="error">
+Resposta inválida.<br><br>
+Favor selecionar uma alternativa compatível com a realidade.
+</div>
+`;
+
+}
+
+function finalizar(){
+
+document.getElementById("content").innerHTML = `
+
+<div class="fade">
+
+<h1>Reserva confirmada.</h1>
+
+<p>
+Agradecemos por concluir o processo de reserva.
+<br><br>
+O Chef Pedro terá o prazer de buscá-la pessoalmente às 20h.
+</p>
+
+</div>
+
+`;
+
+}
+
+</script>
+
+</body>
+</html>
