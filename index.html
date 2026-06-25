@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -6,7 +7,6 @@
 <title>Confirmação de Reserva</title>
 
 <style>
-
 *{
     margin:0;
     padding:0;
@@ -83,6 +83,10 @@ button:hover{
     font-weight:bold;
 }
 
+.fade{
+    animation:fade .5s ease;
+}
+
 @keyframes fade{
     from{
         opacity:0;
@@ -93,11 +97,6 @@ button:hover{
         transform:translateY(0);
     }
 }
-
-.fade{
-    animation:fade .5s ease;
-}
-
 </style>
 </head>
 
@@ -108,7 +107,8 @@ button:hover{
 <h1>Olá, senhorita Valentina Graff.</h1>
 
 <p>
-Entramos em contato para confirmar sua reserva para sábado à noite.
+Entramos em contato para confirmar sua reserva para sábado à noite,
+na casa do Chef Pedro.
 <br><br>
 Podemos contar com sua presença?
 </p>
@@ -212,7 +212,8 @@ function alternativaInvalida(){
 
 document.getElementById("msg").innerHTML = `
 <div class="error">
-Resposta inválida.<br><br>
+Resposta inválida.
+<br><br>
 Favor selecionar uma alternativa compatível com a realidade.
 </div>
 `;
@@ -230,7 +231,9 @@ document.getElementById("content").innerHTML = `
 <p>
 Agradecemos por concluir o processo de reserva.
 <br><br>
-O Chef Pedro terá o prazer de buscá-la pessoalmente às 20h.
+Sua reserva está confirmada para sábado, às <strong>19:00</strong>, na casa do Chef Pedro.
+<br><br>
+O Chef Pedro terá o prazer de recebê-la para uma noite especial.
 </p>
 
 </div>
@@ -243,3 +246,4 @@ O Chef Pedro terá o prazer de buscá-la pessoalmente às 20h.
 
 </body>
 </html>
+```
